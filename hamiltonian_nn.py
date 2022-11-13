@@ -50,7 +50,7 @@ class HamiltonianIdentityBlock(nn.Module):
         y_2 = y + self.K1T(self.act(self.K1(z)))
         z_2 = z - self.K2T(self.act(self.K2(y)))
         assert not torch.any(torch.isnan(self.K1.weight))
-        assert self.K1.weight[3][2][1][0] == self.K1T.weight[3][2][0][1]
+        # assert torch.allclose(self.K1.weight[3][2][1][0], self.K1T.weight[3][2][0][1])
         return torch.cat([y_2, z_2], dim=1)
     
 
