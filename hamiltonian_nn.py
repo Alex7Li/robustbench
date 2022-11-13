@@ -74,7 +74,7 @@ class HamiltonianStack(nn.Module):
             (x.shape[0],
             self.out_channels - x.shape[1],
             x.shape[2],
-            x.shape[3]))
+            x.shape[3])).to(x.device)
         x = torch.cat([x, zero_channel_pad], dim=1)
         return x
 
