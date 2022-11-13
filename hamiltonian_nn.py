@@ -174,7 +174,6 @@ def test_hamiltonian_nn(device):
 
 
 
-
 def robest_test_hamiltonian_nn():
     from robustbench import benchmark
 
@@ -182,6 +181,7 @@ def robest_test_hamiltonian_nn():
     dataset = "cifar10"  # one of {"cifar10", "cifar100", "imagenet"}
 
     model = Hamiltonian()
+    model.load_state_dict(torch.load(PATH))
     model_name = "Hamiltonian2022Reversible"
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
